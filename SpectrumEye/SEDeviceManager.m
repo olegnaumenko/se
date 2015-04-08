@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Coppertino Inc. All rights reserved.
 //
 
+#import <CoreAudio/CoreAudioTypes.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "SEDeviceManager.h"
 
 @interface SEDeviceManager ()
@@ -14,25 +16,104 @@
 
 @implementation SEDeviceManager
 
+OSStatus __SEDeviceChangeListener(AudioObjectID                       inObjectID,
+                                  UInt32                              inNumberAddresses,
+                                  const AudioObjectPropertyAddress    inAddresses[],
+                                  void*                               inClientData)
+{
+    if (inNumberAddresses) {
+        SEDeviceManager * manager = (__bridge SEDeviceManager*)inClientData;
+        AudioObjectPropertyAddress addr = inAddresses[0];
+        
+        if (addr.mSelector == kAudioHardwarePropertyDefaultOutputDevice) {
+            [manager _rescanPlaybackDevices];
+            if ([manager.delegate respondsToSelector:@selector(defaultPlaybackDeviceChanged:)]) {
+                [manager.delegate defaultPlaybackDeviceChanged:manager];
+            }
+            return noErr;
+        } else if (addr.mSelector == kAudioHardwarePropertyDefaultInputDevice) {
+            [manager _rescanRecordingDevices];
+            if ([manager.delegate respondsToSelector:@selector(defaultRecordingDeviceChanged:)]) {
+                [manager.delegate defaultRecordingDeviceChanged:manager];
+            }
+            return noErr;
+        } else if (addr.mSelector == kAudioHardwarePropertyDevices) {
+            [manager rescan];
+            return noErr;
+        }
+    }
+    return -1;
+}
+
 - (instancetype)initWithDelegate:(id<SEDeviceManagerDelegate>)delegate
 {
     if (self = [super init]) {
         self.delegate = delegate;
-        [self rescanPlaybackDevices];
-        [self rescanRecordingDevices];
+        [self _rescanPlaybackDevices];
+        [self _rescanRecordingDevices];
+        [self _addDeviceLayoutListeners];
     }
     return  self;
 }
 
-- (void) rescanRecordingDevices
+- (void) dealloc
+{
+    [self _removeDeviceLayoutListeners];
+}
+
+- (void) _addDeviceLayoutListeners
+{
+    AudioObjectPropertyAddress propertyAddress;
+    propertyAddress.mScope		= kAudioObjectPropertyScopeGlobal;
+    propertyAddress.mElement	= kAudioObjectPropertyElementMaster;
+    
+    propertyAddress.mSelector	= kAudioHardwarePropertyDefaultOutputDevice;
+    OSStatus err =  AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+    if (err != noErr) {
+        NSLog(@"Could not set Default Output Device listener!");
+    }
+    
+    propertyAddress.mSelector	= kAudioHardwarePropertyDefaultInputDevice;
+    err =  AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+    if (err != noErr) {
+        NSLog(@"Could not set Default Input Device listener!");
+    }
+    
+    propertyAddress.mSelector   = kAudioHardwarePropertyDevices;
+    err =  AudioObjectAddPropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+    
+    if (err != noErr) {
+        NSLog(@"Could not set Devices List listener!");
+    }
+}
+
+- (void) _removeDeviceLayoutListeners
+{
+    AudioObjectPropertyAddress propertyAddress;
+    propertyAddress.mScope		= kAudioObjectPropertyScopeGlobal;
+    propertyAddress.mElement	= kAudioObjectPropertyElementMaster;
+    
+    propertyAddress.mSelector	= kAudioHardwarePropertyDefaultOutputDevice;
+    AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+    
+    propertyAddress.mSelector	= kAudioHardwarePropertyDefaultInputDevice;
+    AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+    
+    propertyAddress.mSelector = kAudioHardwarePropertyDevices;
+    AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &propertyAddress, __SEDeviceChangeListener, (__bridge void*)self);
+}
+
+- (void) _rescanRecordingDevices
 {
     NSMutableArray * recordDevices = @[].mutableCopy;
     
     int a;
     BASS_DEVICEINFO info;
     for (a=0; BASS_RecordGetDeviceInfo(a, &info); a++) {
-        if ((info.flags&BASS_DEVICE_ENABLED)) {
-            SERecordingDevice * device = [[SERecordingDevice alloc]initWithHandle:a delegate:self];
+        if (info.flags&BASS_DEVICE_ENABLED) {
+            SERecordingDeviceInfo * device = [[SERecordingDeviceInfo alloc]initWithHandle:a delegate:self];
+            [device run];
+            [device stop];
             if (info.name) {
                 device.name = [NSString stringWithUTF8String:info.name];
             }
@@ -43,14 +124,23 @@
             [recordDevices addObject:device];
         }
     }
-    self.recordDevices = recordDevices.copy;
-    if (!self.currentRecordingDevice && self.recordDevices.count) {
-        self.currentRecordingDevice = [self.recordDevices objectAtIndex:0];
+    
+    NSArray * newDevices = recordDevices.copy;
+    
+    @synchronized(self) {
+        BOOL isChange = self.allRecordingDeviceInfos.count != newDevices.count;
+        
+        self.allRecordingDeviceInfos = newDevices;
+        if (!self.currentRecordingDevice && self.allRecordingDeviceInfos.count) {
+            _currentRecordingDevice = [self.allRecordingDeviceInfos objectAtIndex:0];
+        }
+        if (isChange && [self.delegate respondsToSelector:@selector(recordingDeviceListChanged:)]) {
+            [self.delegate recordingDeviceListChanged:self];
+        }
     }
-    NSLog(@"REC DEV: \n%@", self.recordDevices);
 }
 
-- (void) rescanPlaybackDevices
+- (void) _rescanPlaybackDevices
 {
     NSMutableArray * playbackDevices = @[].mutableCopy;
     
@@ -59,7 +149,7 @@
     for (a=1; BASS_GetDeviceInfo(a, &info); a++) {
         if (info.flags&BASS_DEVICE_ENABLED) {
             count++; // count it
-            SEAudioDevice * device = [[SEPlaybackDevice alloc]initWithHandle:a delegate: self];
+            SEPlaybackDeviceInfo * device = [[SEPlaybackDeviceInfo alloc]initWithHandle:a delegate: self];
             if (info.name) {
                 device.name = [NSString stringWithUTF8String:info.name];
             }
@@ -70,16 +160,32 @@
             [playbackDevices addObject:device];
         }
     }
-    self.playbackDevices = playbackDevices.copy;
-    if (!self.currentPlaybackDevice && self.playbackDevices.count) {
-        self.currentPlaybackDevice = [self.playbackDevices objectAtIndex:0];
+    
+    NSArray * newDevices = playbackDevices.copy;
+    
+    @synchronized(self) {
+        BOOL isChange = self.allPlaybackDeviceInfos.count != newDevices.count;
+        
+        self.allPlaybackDeviceInfos = newDevices;
+        if (!self.currentPlaybackDevice && self.allPlaybackDeviceInfos.count) {
+            _currentPlaybackDevice = [self.allPlaybackDeviceInfos objectAtIndex:0];
+        }
+        if(isChange && [self.delegate respondsToSelector:@selector(playbackDeviceListChanged:)]) {
+            [self.delegate playbackDeviceListChanged:self];
+        }
     }
-    NSLog(@"PB DEV: \n%@", self.playbackDevices);
 }
 
-- (SERecordingDevice*)recordingDeviceForHandle:(DWORD)handle
+
+- (void) rescan
 {
-    for (SERecordingDevice * dev in self.recordDevices) {
+    [self _rescanPlaybackDevices];
+    [self _rescanRecordingDevices];
+}
+
+- (SERecordingDeviceInfo*)recordingDeviceForHandle:(DWORD)handle
+{
+    for (SERecordingDeviceInfo * dev in self.allRecordingDeviceInfos) {
         if (dev.bassHandle == handle) {
             return dev;
         }
@@ -87,9 +193,9 @@
     return nil;
 }
 
-- (SEPlaybackDevice*)defaultPlaybackDevice
+- (SEPlaybackDeviceInfo*)defaultPlaybackDevice
 {
-    for (SEPlaybackDevice * dev in self.playbackDevices) {
+    for (SEPlaybackDeviceInfo * dev in self.allPlaybackDeviceInfos) {
         if (dev.isDefault) {
             return dev;
         }
@@ -97,9 +203,9 @@
     return nil;
 }
 
-- (SERecordingDevice*)defaultRecordingDevice
+- (SERecordingDeviceInfo*)defaultRecordingDevice
 {
-    for (SERecordingDevice * dev in self.recordDevices) {
+    for (SERecordingDeviceInfo * dev in self.allRecordingDeviceInfos) {
         if (dev.isDefault) {
             return dev;
         }
@@ -107,12 +213,15 @@
     return nil;
 }
 
-- (void) audioDeviceDidChange:(SEAudioDevice*)device
+
+#pragma mark - AudioDevice Delegate
+
+- (void) audioDeviceDidChange:(SEAudioDeviceInfo*)device
 {
     
 }
 
-- (void) audioDeviceDidDisconnect:(SEAudioDevice*)device
+- (void) audioDeviceDidDisconnect:(SEAudioDeviceInfo*)device
 {
     
 }

@@ -10,6 +10,14 @@
 
 @implementation SERecordController
 
+- (instancetype)initWithRecodringDevice:(SERecordingDeviceInfo*)device
+{
+    if (self = [super init]) {
+        self.device = device;
+    }
+    return self;
+}
+
 - (BOOL) isRunning
 {
     return self.recorder.isRecording;
@@ -17,7 +25,7 @@
 
 - (void) startRecording
 {
-    self.recorder = [[SERecorder alloc]initWithDelegate:self shouldStart:YES];
+    self.recorder = [[SERecorder alloc]initWithDelegate:self recordingDevice:self.device shouldStart:YES];
     UInt32 bufferSize = 2*(UInt32)self.recorder.updatePeriodBytes;
     self.tape = [[SEDataTape alloc]initWithBufferSize:bufferSize];
 }

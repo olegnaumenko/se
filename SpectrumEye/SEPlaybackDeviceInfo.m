@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Coppertino Inc. All rights reserved.
 //
 
-#import "SEPlaybackDevice.h"
+#import "SEPlaybackDeviceInfo.h"
 #import "bass.h"
 
-@implementation SEPlaybackDevice
+@implementation SEPlaybackDeviceInfo
 
 
 - (BASS_DEVICEINFO) deviceInfo

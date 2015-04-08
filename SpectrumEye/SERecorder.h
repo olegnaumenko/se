@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SERecordingDeviceInfo.h"
 #import "bass.h"
 
 @protocol SERecorderDelegate;
@@ -25,7 +26,11 @@
                       shouldStart:(BOOL)shouldstart;
 
 - (instancetype) initWithDelegate:(id<SERecorderDelegate>)delegate
-                           device:(DWORD)device
+                  recordingDevice:(SERecordingDeviceInfo*)device
+                      shouldStart:(BOOL)shouldstart;
+
+- (instancetype) initWithDelegate:(id<SERecorderDelegate>)delegate
+                     deviceHandle:(DWORD)deviceHandle
                        sampleRate:(int)sampleRate
                      channelCount:(int)channelCount
                        bufferSize:(int)bufferSize

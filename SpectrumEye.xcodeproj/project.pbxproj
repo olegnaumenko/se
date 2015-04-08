@@ -10,9 +10,9 @@
 		7C9BF94E1AD41CD2000EEB45 /* SEDataSink.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF94D1AD41CD2000EEB45 /* SEDataSink.m */; };
 		7C9BF9531AD41EBE000EEB45 /* SEWaveDataSink.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9521AD41EBE000EEB45 /* SEWaveDataSink.m */; };
 		7C9BF9561AD42628000EEB45 /* SEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */; };
-		7C9BF9591AD42846000EEB45 /* SERecordingDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */; };
-		7C9BF95C1AD4285E000EEB45 /* SEAudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */; };
-		7C9BF9601AD42E31000EEB45 /* SEPlaybackDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */; };
+		7C9BF9591AD42846000EEB45 /* SERecordingDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9581AD42846000EEB45 /* SERecordingDeviceInfo.m */; };
+		7C9BF95C1AD4285E000EEB45 /* SEAudioDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95B1AD4285E000EEB45 /* SEAudioDeviceInfo.m */; };
+		7C9BF9601AD42E31000EEB45 /* SEPlaybackDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95F1AD42E31000EEB45 /* SEPlaybackDeviceInfo.m */; };
 		7CA2E3C51AD3D2C300E59599 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C41AD3D2C300E59599 /* AppDelegate.m */; };
 		7CA2E3C71AD3D2C300E59599 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C61AD3D2C300E59599 /* main.m */; };
 		7CA2E3C91AD3D2C300E59599 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C81AD3D2C300E59599 /* Images.xcassets */; };
@@ -65,12 +65,12 @@
 		7C9BF9521AD41EBE000EEB45 /* SEWaveDataSink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEWaveDataSink.m; sourceTree = "<group>"; };
 		7C9BF9541AD42628000EEB45 /* SEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDeviceManager.h; sourceTree = "<group>"; };
 		7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEDeviceManager.m; sourceTree = "<group>"; };
-		7C9BF9571AD42846000EEB45 /* SERecordingDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERecordingDevice.h; sourceTree = "<group>"; };
-		7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERecordingDevice.m; sourceTree = "<group>"; };
-		7C9BF95A1AD4285E000EEB45 /* SEAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAudioDevice.h; sourceTree = "<group>"; };
-		7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAudioDevice.m; sourceTree = "<group>"; };
-		7C9BF95E1AD42E31000EEB45 /* SEPlaybackDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPlaybackDevice.h; sourceTree = "<group>"; };
-		7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPlaybackDevice.m; sourceTree = "<group>"; };
+		7C9BF9571AD42846000EEB45 /* SERecordingDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERecordingDeviceInfo.h; sourceTree = "<group>"; };
+		7C9BF9581AD42846000EEB45 /* SERecordingDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERecordingDeviceInfo.m; sourceTree = "<group>"; };
+		7C9BF95A1AD4285E000EEB45 /* SEAudioDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAudioDeviceInfo.h; sourceTree = "<group>"; };
+		7C9BF95B1AD4285E000EEB45 /* SEAudioDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAudioDeviceInfo.m; sourceTree = "<group>"; };
+		7C9BF95E1AD42E31000EEB45 /* SEPlaybackDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPlaybackDeviceInfo.h; sourceTree = "<group>"; };
+		7C9BF95F1AD42E31000EEB45 /* SEPlaybackDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPlaybackDeviceInfo.m; sourceTree = "<group>"; };
 		7CA2E3BE1AD3D2C300E59599 /* SpectrumEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpectrumEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA2E3C21AD3D2C300E59599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CA2E3C31AD3D2C300E59599 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,12 +164,12 @@
 			children = (
 				7C9BF9541AD42628000EEB45 /* SEDeviceManager.h */,
 				7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */,
-				7C9BF9571AD42846000EEB45 /* SERecordingDevice.h */,
-				7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */,
-				7C9BF95E1AD42E31000EEB45 /* SEPlaybackDevice.h */,
-				7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */,
-				7C9BF95A1AD4285E000EEB45 /* SEAudioDevice.h */,
-				7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */,
+				7C9BF9571AD42846000EEB45 /* SERecordingDeviceInfo.h */,
+				7C9BF9581AD42846000EEB45 /* SERecordingDeviceInfo.m */,
+				7C9BF95E1AD42E31000EEB45 /* SEPlaybackDeviceInfo.h */,
+				7C9BF95F1AD42E31000EEB45 /* SEPlaybackDeviceInfo.m */,
+				7C9BF95A1AD4285E000EEB45 /* SEAudioDeviceInfo.h */,
+				7C9BF95B1AD4285E000EEB45 /* SEAudioDeviceInfo.m */,
 			);
 			name = DeviceManager;
 			sourceTree = "<group>";
@@ -365,15 +365,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C9BF9601AD42E31000EEB45 /* SEPlaybackDevice.m in Sources */,
+				7C9BF9601AD42E31000EEB45 /* SEPlaybackDeviceInfo.m in Sources */,
 				7CA2E3C71AD3D2C300E59599 /* main.m in Sources */,
 				7CA2E4001AD3E2F300E59599 /* SERecordController.m in Sources */,
 				7C9BF94E1AD41CD2000EEB45 /* SEDataSink.m in Sources */,
-				7C9BF9591AD42846000EEB45 /* SERecordingDevice.m in Sources */,
+				7C9BF9591AD42846000EEB45 /* SERecordingDeviceInfo.m in Sources */,
 				7CA2E3E61AD3D3B000E59599 /* SERecorder.m in Sources */,
 				7CA2E3C51AD3D2C300E59599 /* AppDelegate.m in Sources */,
 				7C9BF9531AD41EBE000EEB45 /* SEWaveDataSink.m in Sources */,
-				7C9BF95C1AD4285E000EEB45 /* SEAudioDevice.m in Sources */,
+				7C9BF95C1AD4285E000EEB45 /* SEAudioDeviceInfo.m in Sources */,
 				7CA2E3E31AD3D2F300E59599 /* SEController.m in Sources */,
 				7C9BF9561AD42628000EEB45 /* SEDeviceManager.m in Sources */,
 				7CA2E4041AD3E72400E59599 /* SEDataTape.m in Sources */,

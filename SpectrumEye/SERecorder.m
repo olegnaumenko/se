@@ -26,15 +26,25 @@ BOOL __SERecorderRecordProc (HRECORD handle, const void *buffer, DWORD length, v
 - (instancetype) initWithDelegate:(id<SERecorderDelegate>)delegate
                       shouldStart:(BOOL)shouldstart
 {
-    DWORD device = -1;
-    BASS_RecordInit(device);
+    DWORD handle = -1;
+//    BASS_RecordInit(handle);
     int channels = 2;
-    int sampleRate = 44100;
-    return [self initWithDelegate:delegate device:device sampleRate:sampleRate channelCount:channels bufferSize:0 shouldStart:shouldstart];
+    int sampleRate = 88200;
+    return [self initWithDelegate:delegate deviceHandle:handle sampleRate:sampleRate channelCount:channels bufferSize:0 shouldStart:shouldstart];
 }
 
 - (instancetype) initWithDelegate:(id<SERecorderDelegate>)delegate
-                           device:(DWORD)device
+                  recordingDevice:(SERecordingDeviceInfo*)device
+                      shouldStart:(BOOL)shouldstart
+{
+//    BASS_RecordInit(device.bassHandle);
+    int channels = 2;
+    int sampleRate = 44100;
+    return [self initWithDelegate:delegate deviceHandle:device.bassHandle sampleRate:sampleRate channelCount:channels bufferSize:0 shouldStart:shouldstart];
+}
+
+- (instancetype) initWithDelegate:(id<SERecorderDelegate>)delegate
+                     deviceHandle:(DWORD)handle
                        sampleRate:(int)sampleRate
                      channelCount:(int)channelCount
                        bufferSize:(int)bufferSize
@@ -44,7 +54,25 @@ BOOL __SERecorderRecordProc (HRECORD handle, const void *buffer, DWORD length, v
         
         self.delegate = delegate;
         self.updatePeriod = 100;
-        BASS_RecordInit(device);
+//        BASS_RecordInit(handle);
+        
+        BASS_RecordSetDevice(handle);
+        
+        BASS_RECORDINFO rinfo = {0};
+        if(!BASS_RecordGetInfo(&rinfo)) NSLog(@"Could not get recordinfo, err = %d", BASS_ErrorGetCode());
+        
+        int chSupported = rinfo.formats>>24;
+        
+        if (chSupported < channelCount) {
+            NSLog(@"Device has less channels than requested! dev: %d req: %d", chSupported, channelCount);
+            channelCount = chSupported;
+        }
+        
+        if (!channelCount) {
+            NSLog(@"Could not use device!");
+            return nil;
+        }
+        
         DWORD flags = BASS_SAMPLE_FLOAT;
         if (!start) {
             flags |= BASS_RECORD_PAUSE;

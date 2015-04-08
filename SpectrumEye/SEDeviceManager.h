@@ -7,30 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SERecordingDevice.h"
-#import "SEPlaybackDevice.h"
+#import "SERecordingDeviceInfo.h"
+#import "SEPlaybackDeviceInfo.h"
 #import "bass.h"
 
 @protocol SEDeviceManagerDelegate;
 
 @interface SEDeviceManager : NSObject <SEAudioDeviceDelegate>
 
-@property (nonatomic, strong) SERecordingDevice * currentRecordingDevice;
-@property (nonatomic, strong) SEPlaybackDevice * currentPlaybackDevice;
-@property (nonatomic, readonly) SERecordingDevice * defaultRecordingDevice;
-@property (nonatomic, readonly) SEPlaybackDevice * defaultPlaybackDevice;
-@property (nonatomic, strong) NSArray * recordDevices;
-@property (nonatomic, strong) NSArray * playbackDevices;
+@property (nonatomic, readonly) SERecordingDeviceInfo * currentRecordingDevice;
+@property (nonatomic, readonly) SEPlaybackDeviceInfo * currentPlaybackDevice;
+@property (nonatomic, readonly) SERecordingDeviceInfo * defaultRecordingDevice;
+@property (nonatomic, readonly) SEPlaybackDeviceInfo * defaultPlaybackDevice;
+@property (nonatomic, strong) NSArray * allRecordingDeviceInfos;
+@property (nonatomic, strong) NSArray * allPlaybackDeviceInfos;
 
 - (instancetype)initWithDelegate:(id<SEDeviceManagerDelegate>)delegate;
-- (void) rescanRecordingDevices;
-- (void) rescanPlaybackDevices;
+- (void) rescan;
 
 @end
 
 @protocol SEDeviceManagerDelegate <NSObject>
-
+@optional
 - (void) recordingDeviceListChanged:(SEDeviceManager*)manager;
 - (void) playbackDeviceListChanged:(SEDeviceManager*)manager;
-
+- (void) defaultRecordingDeviceChanged:(SEDeviceManager*)manager;
+- (void) defaultPlaybackDeviceChanged:(SEDeviceManager*)manager;
 @end

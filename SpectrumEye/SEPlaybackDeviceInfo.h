@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Coppertino Inc. All rights reserved.
 //
 
-#import "SEAudioDevice.h"
+#import "SEAudioDeviceInfo.h"
 
-@interface SEPlaybackDevice : SEAudioDevice
+@interface SEPlaybackDeviceInfo : SEAudioDeviceInfo
 
 @end
