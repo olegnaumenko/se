@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C9BF94E1AD41CD2000EEB45 /* SEDataSink.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF94D1AD41CD2000EEB45 /* SEDataSink.m */; };
+		7C9BF9531AD41EBE000EEB45 /* SEWaveDataSink.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9521AD41EBE000EEB45 /* SEWaveDataSink.m */; };
+		7C9BF9561AD42628000EEB45 /* SEDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */; };
+		7C9BF9591AD42846000EEB45 /* SERecordingDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */; };
+		7C9BF95C1AD4285E000EEB45 /* SEAudioDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */; };
+		7C9BF9601AD42E31000EEB45 /* SEPlaybackDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */; };
+		7CA2E3C51AD3D2C300E59599 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C41AD3D2C300E59599 /* AppDelegate.m */; };
+		7CA2E3C71AD3D2C300E59599 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C61AD3D2C300E59599 /* main.m */; };
+		7CA2E3C91AD3D2C300E59599 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2E3C81AD3D2C300E59599 /* Images.xcassets */; };
+		7CA2E3CC1AD3D2C300E59599 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CA2E3CA1AD3D2C300E59599 /* MainMenu.xib */; };
+		7CA2E3D81AD3D2C300E59599 /* SpectrumEyeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3D71AD3D2C300E59599 /* SpectrumEyeTests.m */; };
+		7CA2E3E31AD3D2F300E59599 /* SEController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3E21AD3D2F300E59599 /* SEController.m */; };
+		7CA2E3E61AD3D3B000E59599 /* SERecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3E51AD3D3B000E59599 /* SERecorder.m */; };
+		7CA2E3EB1AD3D45500E59599 /* libbass.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3EA1AD3D45500E59599 /* libbass.dylib */; };
+		7CA2E3EC1AD3D45500E59599 /* libbass.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3EA1AD3D45500E59599 /* libbass.dylib */; };
+		7CA2E3F01AD3DD1D00E59599 /* libbass.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7CA2E3EA1AD3D45500E59599 /* libbass.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7CA2E3F31AD3DD4000E59599 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3F11AD3DD4000E59599 /* AudioToolbox.framework */; };
+		7CA2E3F41AD3DD4000E59599 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3F21AD3DD4000E59599 /* CoreAudio.framework */; };
+		7CA2E3F61AD3DD4E00E59599 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3F51AD3DD4E00E59599 /* AVFoundation.framework */; };
+		7CA2E3F81AD3DD5500E59599 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3F71AD3DD5500E59599 /* Security.framework */; };
+		7CA2E3FA1AD3DD5A00E59599 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3F91AD3DD5A00E59599 /* Accelerate.framework */; };
+		7CA2E3FC1AD3DD5F00E59599 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA2E3FB1AD3DD5F00E59599 /* CFNetwork.framework */; };
+		7CA2E4001AD3E2F300E59599 /* SERecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3FF1AD3E2F300E59599 /* SERecordController.m */; };
+		7CA2E4011AD3E2F300E59599 /* SERecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E3FF1AD3E2F300E59599 /* SERecordController.m */; };
+		7CA2E4041AD3E72400E59599 /* SEDataTape.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E4031AD3E72400E59599 /* SEDataTape.m */; };
+		7CA2E4051AD3E72400E59599 /* SEDataTape.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA2E4031AD3E72400E59599 /* SEDataTape.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CA2E3D21AD3D2C300E59599 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CA2E3B61AD3D2C300E59599 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CA2E3BD1AD3D2C300E59599;
+			remoteInfo = SpectrumEye;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CA2E3EF1AD3DD1400E59599 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				7CA2E3F01AD3DD1D00E59599 /* libbass.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7C9BF94C1AD41CD2000EEB45 /* SEDataSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDataSink.h; sourceTree = "<group>"; };
+		7C9BF94D1AD41CD2000EEB45 /* SEDataSink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEDataSink.m; sourceTree = "<group>"; };
+		7C9BF9511AD41EBE000EEB45 /* SEWaveDataSink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEWaveDataSink.h; sourceTree = "<group>"; };
+		7C9BF9521AD41EBE000EEB45 /* SEWaveDataSink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEWaveDataSink.m; sourceTree = "<group>"; };
+		7C9BF9541AD42628000EEB45 /* SEDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDeviceManager.h; sourceTree = "<group>"; };
+		7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEDeviceManager.m; sourceTree = "<group>"; };
+		7C9BF9571AD42846000EEB45 /* SERecordingDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERecordingDevice.h; sourceTree = "<group>"; };
+		7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERecordingDevice.m; sourceTree = "<group>"; };
+		7C9BF95A1AD4285E000EEB45 /* SEAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAudioDevice.h; sourceTree = "<group>"; };
+		7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAudioDevice.m; sourceTree = "<group>"; };
+		7C9BF95E1AD42E31000EEB45 /* SEPlaybackDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEPlaybackDevice.h; sourceTree = "<group>"; };
+		7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEPlaybackDevice.m; sourceTree = "<group>"; };
+		7CA2E3BE1AD3D2C300E59599 /* SpectrumEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpectrumEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CA2E3C21AD3D2C300E59599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CA2E3C31AD3D2C300E59599 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7CA2E3C41AD3D2C300E59599 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7CA2E3C61AD3D2C300E59599 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7CA2E3C81AD3D2C300E59599 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7CA2E3CB1AD3D2C300E59599 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7CA2E3D11AD3D2C300E59599 /* SpectrumEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectrumEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CA2E3D61AD3D2C300E59599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CA2E3D71AD3D2C300E59599 /* SpectrumEyeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectrumEyeTests.m; sourceTree = "<group>"; };
+		7CA2E3E11AD3D2F300E59599 /* SEController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEController.h; sourceTree = "<group>"; };
+		7CA2E3E21AD3D2F300E59599 /* SEController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEController.m; sourceTree = "<group>"; };
+		7CA2E3E41AD3D3B000E59599 /* SERecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERecorder.h; sourceTree = "<group>"; };
+		7CA2E3E51AD3D3B000E59599 /* SERecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERecorder.m; sourceTree = "<group>"; };
+		7CA2E3E91AD3D45500E59599 /* bass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bass.h; sourceTree = "<group>"; };
+		7CA2E3EA1AD3D45500E59599 /* libbass.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libbass.dylib; sourceTree = "<group>"; };
+		7CA2E3F11AD3DD4000E59599 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7CA2E3F21AD3DD4000E59599 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7CA2E3F51AD3DD4E00E59599 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7CA2E3F71AD3DD5500E59599 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7CA2E3F91AD3DD5A00E59599 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7CA2E3FB1AD3DD5F00E59599 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7CA2E3FE1AD3E2F300E59599 /* SERecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SERecordController.h; sourceTree = "<group>"; };
+		7CA2E3FF1AD3E2F300E59599 /* SERecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SERecordController.m; sourceTree = "<group>"; };
+		7CA2E4021AD3E72400E59599 /* SEDataTape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEDataTape.h; sourceTree = "<group>"; };
+		7CA2E4031AD3E72400E59599 /* SEDataTape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEDataTape.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7CA2E3BB1AD3D2C300E59599 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA2E3FC1AD3DD5F00E59599 /* CFNetwork.framework in Frameworks */,
+				7CA2E3FA1AD3DD5A00E59599 /* Accelerate.framework in Frameworks */,
+				7CA2E3F81AD3DD5500E59599 /* Security.framework in Frameworks */,
+				7CA2E3F61AD3DD4E00E59599 /* AVFoundation.framework in Frameworks */,
+				7CA2E3F31AD3DD4000E59599 /* AudioToolbox.framework in Frameworks */,
+				7CA2E3F41AD3DD4000E59599 /* CoreAudio.framework in Frameworks */,
+				7CA2E3EB1AD3D45500E59599 /* libbass.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CA2E3CE1AD3D2C300E59599 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA2E3EC1AD3D45500E59599 /* libbass.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7C9BF94F1AD41E2D000EEB45 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3FE1AD3E2F300E59599 /* SERecordController.h */,
+				7CA2E3FF1AD3E2F300E59599 /* SERecordController.m */,
+				7CA2E4021AD3E72400E59599 /* SEDataTape.h */,
+				7CA2E4031AD3E72400E59599 /* SEDataTape.m */,
+				7CA2E3E41AD3D3B000E59599 /* SERecorder.h */,
+				7CA2E3E51AD3D3B000E59599 /* SERecorder.m */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
+		7C9BF9501AD41E41000EEB45 /* DataSinks */ = {
+			isa = PBXGroup;
+			children = (
+				7C9BF94C1AD41CD2000EEB45 /* SEDataSink.h */,
+				7C9BF94D1AD41CD2000EEB45 /* SEDataSink.m */,
+				7C9BF9511AD41EBE000EEB45 /* SEWaveDataSink.h */,
+				7C9BF9521AD41EBE000EEB45 /* SEWaveDataSink.m */,
+			);
+			name = DataSinks;
+			sourceTree = "<group>";
+		};
+		7C9BF95D1AD4286C000EEB45 /* DeviceManager */ = {
+			isa = PBXGroup;
+			children = (
+				7C9BF9541AD42628000EEB45 /* SEDeviceManager.h */,
+				7C9BF9551AD42628000EEB45 /* SEDeviceManager.m */,
+				7C9BF9571AD42846000EEB45 /* SERecordingDevice.h */,
+				7C9BF9581AD42846000EEB45 /* SERecordingDevice.m */,
+				7C9BF95E1AD42E31000EEB45 /* SEPlaybackDevice.h */,
+				7C9BF95F1AD42E31000EEB45 /* SEPlaybackDevice.m */,
+				7C9BF95A1AD4285E000EEB45 /* SEAudioDevice.h */,
+				7C9BF95B1AD4285E000EEB45 /* SEAudioDevice.m */,
+			);
+			name = DeviceManager;
+			sourceTree = "<group>";
+		};
+		7CA2E3B51AD3D2C300E59599 = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3C01AD3D2C300E59599 /* SpectrumEye */,
+				7CA2E3E71AD3D45500E59599 /* libs */,
+				7CA2E3FD1AD3DD6900E59599 /* Frameworks */,
+				7CA2E3D41AD3D2C300E59599 /* SpectrumEyeTests */,
+				7CA2E3BF1AD3D2C300E59599 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7CA2E3BF1AD3D2C300E59599 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3BE1AD3D2C300E59599 /* SpectrumEye.app */,
+				7CA2E3D11AD3D2C300E59599 /* SpectrumEyeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7CA2E3C01AD3D2C300E59599 /* SpectrumEye */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3C31AD3D2C300E59599 /* AppDelegate.h */,
+				7CA2E3C41AD3D2C300E59599 /* AppDelegate.m */,
+				7CA2E3E11AD3D2F300E59599 /* SEController.h */,
+				7CA2E3E21AD3D2F300E59599 /* SEController.m */,
+				7C9BF95D1AD4286C000EEB45 /* DeviceManager */,
+				7C9BF94F1AD41E2D000EEB45 /* Input */,
+				7C9BF9501AD41E41000EEB45 /* DataSinks */,
+				7CA2E3C81AD3D2C300E59599 /* Images.xcassets */,
+				7CA2E3CA1AD3D2C300E59599 /* MainMenu.xib */,
+				7CA2E3C11AD3D2C300E59599 /* Supporting Files */,
+			);
+			path = SpectrumEye;
+			sourceTree = "<group>";
+		};
+		7CA2E3C11AD3D2C300E59599 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3C21AD3D2C300E59599 /* Info.plist */,
+				7CA2E3C61AD3D2C300E59599 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CA2E3D41AD3D2C300E59599 /* SpectrumEyeTests */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3D71AD3D2C300E59599 /* SpectrumEyeTests.m */,
+				7CA2E3D51AD3D2C300E59599 /* Supporting Files */,
+			);
+			path = SpectrumEyeTests;
+			sourceTree = "<group>";
+		};
+		7CA2E3D51AD3D2C300E59599 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3D61AD3D2C300E59599 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CA2E3E71AD3D45500E59599 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3E81AD3D45500E59599 /* bass */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		7CA2E3E81AD3D45500E59599 /* bass */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3E91AD3D45500E59599 /* bass.h */,
+				7CA2E3EA1AD3D45500E59599 /* libbass.dylib */,
+			);
+			path = bass;
+			sourceTree = "<group>";
+		};
+		7CA2E3FD1AD3DD6900E59599 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3FB1AD3DD5F00E59599 /* CFNetwork.framework */,
+				7CA2E3F91AD3DD5A00E59599 /* Accelerate.framework */,
+				7CA2E3F71AD3DD5500E59599 /* Security.framework */,
+				7CA2E3F51AD3DD4E00E59599 /* AVFoundation.framework */,
+				7CA2E3F11AD3DD4000E59599 /* AudioToolbox.framework */,
+				7CA2E3F21AD3DD4000E59599 /* CoreAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7CA2E3BD1AD3D2C300E59599 /* SpectrumEye */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CA2E3DB1AD3D2C300E59599 /* Build configuration list for PBXNativeTarget "SpectrumEye" */;
+			buildPhases = (
+				7CA2E3BA1AD3D2C300E59599 /* Sources */,
+				7CA2E3BB1AD3D2C300E59599 /* Frameworks */,
+				7CA2E3BC1AD3D2C300E59599 /* Resources */,
+				7CA2E3EF1AD3DD1400E59599 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpectrumEye;
+			productName = SpectrumEye;
+			productReference = 7CA2E3BE1AD3D2C300E59599 /* SpectrumEye.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7CA2E3D01AD3D2C300E59599 /* SpectrumEyeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CA2E3DE1AD3D2C300E59599 /* Build configuration list for PBXNativeTarget "SpectrumEyeTests" */;
+			buildPhases = (
+				7CA2E3CD1AD3D2C300E59599 /* Sources */,
+				7CA2E3CE1AD3D2C300E59599 /* Frameworks */,
+				7CA2E3CF1AD3D2C300E59599 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7CA2E3D31AD3D2C300E59599 /* PBXTargetDependency */,
+			);
+			name = SpectrumEyeTests;
+			productName = SpectrumEyeTests;
+			productReference = 7CA2E3D11AD3D2C300E59599 /* SpectrumEyeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7CA2E3B61AD3D2C300E59599 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Coppertino Inc.";
+				TargetAttributes = {
+					7CA2E3BD1AD3D2C300E59599 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					7CA2E3D01AD3D2C300E59599 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 7CA2E3BD1AD3D2C300E59599;
+					};
+				};
+			};
+			buildConfigurationList = 7CA2E3B91AD3D2C300E59599 /* Build configuration list for PBXProject "SpectrumEye" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7CA2E3B51AD3D2C300E59599;
+			productRefGroup = 7CA2E3BF1AD3D2C300E59599 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7CA2E3BD1AD3D2C300E59599 /* SpectrumEye */,
+				7CA2E3D01AD3D2C300E59599 /* SpectrumEyeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7CA2E3BC1AD3D2C300E59599 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA2E3C91AD3D2C300E59599 /* Images.xcassets in Resources */,
+				7CA2E3CC1AD3D2C300E59599 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CA2E3CF1AD3D2C300E59599 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7CA2E3BA1AD3D2C300E59599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C9BF9601AD42E31000EEB45 /* SEPlaybackDevice.m in Sources */,
+				7CA2E3C71AD3D2C300E59599 /* main.m in Sources */,
+				7CA2E4001AD3E2F300E59599 /* SERecordController.m in Sources */,
+				7C9BF94E1AD41CD2000EEB45 /* SEDataSink.m in Sources */,
+				7C9BF9591AD42846000EEB45 /* SERecordingDevice.m in Sources */,
+				7CA2E3E61AD3D3B000E59599 /* SERecorder.m in Sources */,
+				7CA2E3C51AD3D2C300E59599 /* AppDelegate.m in Sources */,
+				7C9BF9531AD41EBE000EEB45 /* SEWaveDataSink.m in Sources */,
+				7C9BF95C1AD4285E000EEB45 /* SEAudioDevice.m in Sources */,
+				7CA2E3E31AD3D2F300E59599 /* SEController.m in Sources */,
+				7C9BF9561AD42628000EEB45 /* SEDeviceManager.m in Sources */,
+				7CA2E4041AD3E72400E59599 /* SEDataTape.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CA2E3CD1AD3D2C300E59599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CA2E4011AD3E2F300E59599 /* SERecordController.m in Sources */,
+				7CA2E3D81AD3D2C300E59599 /* SpectrumEyeTests.m in Sources */,
+				7CA2E4051AD3E72400E59599 /* SEDataTape.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CA2E3D31AD3D2C300E59599 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CA2E3BD1AD3D2C300E59599 /* SpectrumEye */;
+			targetProxy = 7CA2E3D21AD3D2C300E59599 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7CA2E3CA1AD3D2C300E59599 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CA2E3CB1AD3D2C300E59599 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7CA2E3D91AD3D2C300E59599 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7CA2E3DA1AD3D2C300E59599 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7CA2E3DC1AD3D2C300E59599 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpectrumEye/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/bass",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7CA2E3DD1AD3D2C300E59599 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpectrumEye/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/bass",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7CA2E3DF1AD3D2C300E59599 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpectrumEyeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/bass",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpectrumEye.app/Contents/MacOS/SpectrumEye";
+			};
+			name = Debug;
+		};
+		7CA2E3E01AD3D2C300E59599 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpectrumEyeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libs/bass",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpectrumEye.app/Contents/MacOS/SpectrumEye";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7CA2E3B91AD3D2C300E59599 /* Build configuration list for PBXProject "SpectrumEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CA2E3D91AD3D2C300E59599 /* Debug */,
+				7CA2E3DA1AD3D2C300E59599 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CA2E3DB1AD3D2C300E59599 /* Build configuration list for PBXNativeTarget "SpectrumEye" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CA2E3DC1AD3D2C300E59599 /* Debug */,
+				7CA2E3DD1AD3D2C300E59599 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CA2E3DE1AD3D2C300E59599 /* Build configuration list for PBXNativeTarget "SpectrumEyeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CA2E3DF1AD3D2C300E59599 /* Debug */,
+				7CA2E3E01AD3D2C300E59599 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7CA2E3B61AD3D2C300E59599 /* Project object */;
+}
