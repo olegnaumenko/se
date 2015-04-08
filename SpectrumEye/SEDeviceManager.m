@@ -31,8 +31,7 @@
     int a;
     BASS_DEVICEINFO info;
     for (a=0; BASS_RecordGetDeviceInfo(a, &info); a++) {
-        if ((info.flags&BASS_DEVICE_ENABLED)) { // found an enabled microphone
-            
+        if ((info.flags&BASS_DEVICE_ENABLED)) {
             SERecordingDevice * device = [[SERecordingDevice alloc]initWithHandle:a delegate:self];
             if (info.name) {
                 device.name = [NSString stringWithUTF8String:info.name];
@@ -78,7 +77,7 @@
     NSLog(@"PB DEV: \n%@", self.playbackDevices);
 }
 
-- (SERecordingDevice*) recordingDeviceForHandle:(DWORD)handle
+- (SERecordingDevice*)recordingDeviceForHandle:(DWORD)handle
 {
     for (SERecordingDevice * dev in self.recordDevices) {
         if (dev.bassHandle == handle) {

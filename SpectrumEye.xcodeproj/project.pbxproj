@@ -125,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C770B291AD52002002C02A3 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				7CA2E3C81AD3D2C300E59599 /* Images.xcassets */,
+				7CA2E3CA1AD3D2C300E59599 /* MainMenu.xib */,
+				7CA2E3C11AD3D2C300E59599 /* Supporting Files */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
 		7C9BF94F1AD41E2D000EEB45 /* Input */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,9 +204,7 @@
 				7C9BF95D1AD4286C000EEB45 /* DeviceManager */,
 				7C9BF94F1AD41E2D000EEB45 /* Input */,
 				7C9BF9501AD41E41000EEB45 /* DataSinks */,
-				7CA2E3C81AD3D2C300E59599 /* Images.xcassets */,
-				7CA2E3CA1AD3D2C300E59599 /* MainMenu.xib */,
-				7CA2E3C11AD3D2C300E59599 /* Supporting Files */,
+				7C770B291AD52002002C02A3 /* OSX */,
 			);
 			path = SpectrumEye;
 			sourceTree = "<group>";
